@@ -2,9 +2,9 @@ import Head from 'next/head';
 import products from '../index';
 import Image from 'next/image';
 import Link from 'next/link';
-import {IoMdArrowRoundBack} from "react-icons/io";
+import { GoArrowLeft } from "react-icons/go";
 
-export default function ProductDetail({ product }) { // เปลี่ยนจาก products เป็น product
+export default function ProductDetail({ product }) {
     return (
         <>
             <Head>
@@ -17,7 +17,7 @@ export default function ProductDetail({ product }) { // เปลี่ยนจ
                 className="min-h-screen justify-item-center p-20"
             >
 				<Link href="/products" className='flex justify-self-start'>
-					<IoMdArrowRoundBack className="text-2xl cursor-pointer text-neutral-600"></IoMdArrowRoundBack>
+					<GoArrowLeft className="text-2xl cursor-pointer text-neutral-600"/>
 				</Link>
                 <div className="w-full md:w-1/2 mx-auto">
                     <p className="text-3xl font-bold text-neutral-600">{product.title}</p>
@@ -28,21 +28,22 @@ export default function ProductDetail({ product }) { // เปลี่ยนจ
                         width={400}
                         height={400}
                     />
-                    <p>
-                        <b>Category: </b>
-                        {product.category}
-                    </p>
-                    <p>
-                        <b>Description: </b>
-                        {product.description}
-                    </p>
-                    <p>
-                        <b>Price: </b>${product.price}
-                    </p>
-                    <p>
-                        <b>Rating: </b>
-                        {product.rating.rate} / {product.rating.count} reviews
-                    </p>
+                    <p className="text-red-500">
+    <b>Category: </b>
+    {product.category}
+</p>
+<p className="text-blue-500">
+    <b>Description: </b>
+    {product.description}
+</p>
+<p className="text-green-500">
+    <b>Price: </b>${product.price}
+</p>
+<p className="text-yellow-500">
+    <b>Rating: </b>
+    {product.rating.rate} / {product.rating.count} reviews
+</p>
+
                 </div>
             </div>
         </>
